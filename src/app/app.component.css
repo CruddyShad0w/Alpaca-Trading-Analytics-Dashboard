@@ -1,0 +1,12 @@
+.container {
+  padding-top: 10px;
+}
+
+body {
+  background-color: grey;
+  min-height:100vh
+}
+
+#navItem:hover{
+  background:none !important;
+}
