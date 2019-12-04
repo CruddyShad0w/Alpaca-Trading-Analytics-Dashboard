@@ -1,0 +1,16 @@
+
+div{
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+form{
+    border: solid 2px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    display: inline-block;
+}
+.quantity{
+    width: 4em;
+}
