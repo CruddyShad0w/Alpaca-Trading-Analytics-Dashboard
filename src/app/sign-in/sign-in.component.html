@@ -1,7 +1,10 @@
 <div class="container" id="login">
   <div class="card bg-dark text-white">
-    <div class="card-header">
+    <div *ngIf="!usernameBool || !passwordBool" class="card-header">
       Log In
+    </div>
+    <div style="color:#90ee90" *ngIf="usernameBool && passwordBool" class="card-header">
+      Logged In
     </div>
     <div class="card-body bg-dark text-white">
       <form [formGroup]="form" class="bg-dark" id="loginForm">
@@ -9,13 +12,13 @@
           <label for="username" class="control-label">Username</label>
           <!-- <input type="text" class="form-control" autocomplete="username" id="username" name="username" title="Please enter you username" placeholder="example@gmail.com"> -->
           <input [(ngModel)]="username" class="form-control" autocomplete="username" id="username" name="username" title="Please enter you username" placeholder="example@gmail.com" type="text" formControlName="user" />
-          <p *ngIf="!loginErrors[0] && form.controls.user.touched" style="color:red">Invalid Username!</p>
+          <p *ngIf="!usernameBool && form.controls.user.touched && submission" style="color:red">Invalid Username!</p>
           <span class="help-block"></span>
         </div>
         <div class="form-group">
           <label for="password" class="control-label">Password</label>
           <input [(ngModel)]="password" type="password" autocomplete="current-password" class="form-control" id="password" name="password" title="Please enter your password" formControlName="pass">
-          <p *ngIf="!loginErrors[1] && form.controls.pass.touched" style="color:red">Invalid Password!</p>
+          <p *ngIf="!passwordBool && form.controls.pass.touched && submission" style="color:red">Invalid Password!</p>
         </div>
         <div class="checkbox">
           <label>
