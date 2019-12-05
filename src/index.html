@@ -6,6 +6,86 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawPieChart);
+    google.charts.setOnLoadCallback(drawLineChart);
+    google.charts.setOnLoadCallback(drawFullChart);
+
+    function drawPieChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Stock', 'Percent of Investment'],
+        ['GOOG', 125.60],
+        ['APPL', 43.30],
+        ['PGE',  201.12],
+        ['DISN', 102.22],
+        ['ZEAL', 232.33]
+      ]);
+
+      var options = {
+        title: 'Percentage Of Diversification',
+        backgroundColor: '#DFDFDF'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    }
+
+    var GOOG = [123.32, 124.43, 125.32, 126.32, 127.32, 123.32, 122.32];
+    var APPL = [22.11, 21.11, 20.11, 19.11, 18.11, 24.11, 25.11];
+    var PGE = [13.89, 12.89, 14.89, 15.89, 11.89, 12.89, 13.89];
+    var DISN = [233.09, 234.09, 235.09, 236.09, 237.09, 233.09, 230.09];
+    var ZEAL = [46.55, 45.55, 44.55, 42.55, 41.55, 40.55, 45.55];
+
+    function drawLineChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Time',  'GOOG', 'APPL', 'PGE',  'DISN', 'ZEAL'],
+          ['8:05',  123.32, 22.11,  13.89,  233.09, 46.55],
+          ['8:10',  124.32, 21.11,  12.89,  234.09, 45.55],
+          ['8:15',  125.32, 20.11,  14.89,  235.09, 44.55],
+          ['8:20',  126.32, 19.11,  15.89,  236.09, 42.55],
+          ['8:25',  127.32, 18.11,  11.89,  237.09, 41.55],
+          ['8:30',  123.32, 24.11,  12.89,  233.09, 40.55],
+          ['8:35',  122.32, 25.11,  13.89,  230.09, 45.55],
+        ]);
+
+        var options = {
+          title: 'Owned Stock Performance',
+          curveType: 'function',
+          backgroundColor: '#DFDFDF',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+        chart.draw(data, options);
+      }
+
+      function drawFullChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Time',  'GOOG'],
+          ['8:05',  GOOG[0] + APPL[0] + PGE[0] + DISN[0] + ZEAL[0]],
+          ['8:10',  GOOG[1] + APPL[1] + PGE[1] + DISN[1] + ZEAL[1]],
+          ['8:15',  GOOG[2] + APPL[2] + PGE[2] + DISN[2] + ZEAL[2]],
+          ['8:20',  GOOG[3] + APPL[3] + PGE[3] + DISN[3] + ZEAL[3]],
+          ['8:25',  GOOG[4] + APPL[4] + PGE[4] + DISN[4] + ZEAL[4]],
+          ['8:30',  GOOG[5] + APPL[5] + PGE[5] + DISN[5] + ZEAL[5]],
+          ['8:35',  GOOG[6] + APPL[6] + PGE[6] + DISN[6] + ZEAL[6]],
+        ]);
+
+        var options = {
+          title: 'Total Investment Value',
+          curveType: 'function',
+          backgroundColor: '#DFDFDF',
+          legend: 'none',
+          format: 'currency'
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('total_chart'));
+        chart.draw(data, options);
+      }
+
+</script>
 </head>
 <body>
   <app-root></app-root>
