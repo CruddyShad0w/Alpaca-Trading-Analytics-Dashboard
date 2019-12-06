@@ -1,16 +1,19 @@
-
 div{
     text-align: center;
     align-content: center;
     align-items: center;
 }
-form{
-    border: solid 2px;
-    text-align: center;
-    align-content: center;
-    align-items: center;
+.centered{
     display: inline-block;
 }
 .quantity{
     width: 4em;
+}
+#search{
+    width: 6em;
+}
+
+input[type=radio] {
+    width: 30px;
+    height: 30px;
 }
