@@ -1,1 +1,24 @@
-<p>portfolio-details works!</p>
+<div class="container mx-auto">
+  <button type="button" class="btn btn-success btn-block" (click)="refresh()">Refresh</button>
+  <div *ngIf="load == true" class="row no-gutters justify-content-center">
+
+    <div *ngFor="let position of positions" id="wrapper">
+      <div class="card bg-dark text-white">
+        <p>graph here</p>
+        <div class="card-body">
+          <h5 class="card-title">{{position.exchange}}:{{position.symbol}}</h5>
+          <p class="card-text">Avg Entry: {{position.avg_entry_price}}</p>
+          <p class="card-text">Shares: {{position.qty}}</p>
+          <p class="card-text">Market Value: {{position.market_value}}</p>
+          <!-- <div *ngIf="{{position.profits}} >= 0" style="color:green"> -->
+            <p class="card-text">Profits: {{position.profits}}</p>
+          <!-- </div> -->
+          <!-- <div *ngIf="{{position.profits}} <= 0" style="color:red"> -->
+            <!-- <p class="card-text">Profits: {{position.profits}}</p> -->
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

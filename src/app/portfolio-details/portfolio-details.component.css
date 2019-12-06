@@ -1,0 +1,19 @@
+.card-img-top{
+  max-height:300px
+}
+.card{
+  width:20rem;
+}
+img:hover{
+  cursor:pointer
+}
+h5:hover{
+  cursor:pointer
+}
+#wrapper{
+  padding-right:5px;
+  padding-bottom:5px
+}
+p{
+  color:white;
+}

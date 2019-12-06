@@ -28,12 +28,33 @@ export class HttpService {
     return results
   }
 
-  async getAlpacaAssets(){
-    let results = await this.http.get('https://alpaca-wrangler-flask-backend.herokuapp.com/assets').toPromise()
+  async updateUserPreferences(id, data){
+    let results = await this.http.post('https://alpaca-wrangler-spring-backend.herokuapp.com/setSettings/'+id,data).toPromise()
     return results
   }
-  async getAlpacaAccount(){
-    let results = await this.http.get('https://alpaca-wrangler-flask-backend.herokuapp.com/account').toPromise()
+  async getAlpacaAssets(data){
+    let results = await this.http.post('https://alpaca-wrangler-flask-backend.herokuapp.com/assets/', data).toPromise()
     return results
   }
+
+  async getAlpacaAccount(data){
+    let results = await this.http.post('https://alpaca-wrangler-flask-backend.herokuapp.com/account/', data).toPromise()
+    return results
+  }
+
+  async getAlpacaPositions(data){
+    let results = await this.http.post('https://alpaca-wrangler-flask-backend.herokuapp.com/positions/', data).toPromise()
+    return results
+  }
+
+  async submitAlpacaOrder(data){
+    let results = await this.http.post('https://alpaca-wrangler-flask-backend.herokuapp.com/stockAction/', data).toPromise()
+    return results
+  }
+
+  async logOutAlpaca(){
+    let results = await this.http.get('https://alpaca-wrangler-flask-backend.herokuapp.com/logout')
+    return results
+  }
+
 }

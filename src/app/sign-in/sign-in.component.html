@@ -1,13 +1,13 @@
 <div class="container" id="login">
   <div class="card bg-dark text-white">
-    <div *ngIf="!usernameBool || !passwordBool" class="card-header">
+    <div *ngIf="(!usernameBool || !passwordBool) && !loginStatus" class="card-header">
       Log In
     </div>
-    <div style="color:#90ee90" *ngIf="usernameBool && passwordBool" class="card-header">
+    <div style="color:#90ee90" *ngIf="(usernameBool && passwordBool) || loginStatus" class="card-header">
       Logged In
     </div>
     <div class="card-body bg-dark text-white">
-      <form [formGroup]="form" class="bg-dark" id="loginForm">
+      <form  [formGroup]="form" class="bg-dark" id="loginForm">
         <div class="form-group ">
           <label for="username" class="control-label">Username</label>
           <!-- <input type="text" class="form-control" autocomplete="username" id="username" name="username" title="Please enter you username" placeholder="example@gmail.com"> -->
@@ -20,12 +20,12 @@
           <input [(ngModel)]="password" type="password" autocomplete="current-password" class="form-control" id="password" name="password" title="Please enter your password" formControlName="pass">
           <p *ngIf="!passwordBool && form.controls.pass.touched && submission" style="color:red">Invalid Password!</p>
         </div>
-        <div class="checkbox">
+        <div *ngIf="(!usernameBool || !passwordBool) && !loginStatus" class="checkbox">
           <label>
             <input type="checkbox" name="remember" id="remember"> Remember login
           </label>
         </div>
-        <button type="button" class="btn btn-success btn-block" (click)="logUserIn()">Login</button>
+        <button *ngIf="(!usernameBool || !passwordBool) && !loginStatus" type="button" class="btn btn-success btn-block" (click)="logUserIn()">Login</button>
       </form>
     </div>
   </div>

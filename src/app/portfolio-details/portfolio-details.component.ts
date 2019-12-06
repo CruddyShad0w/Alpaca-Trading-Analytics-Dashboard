@@ -10,12 +10,23 @@ import { HttpService } from "./../http.service";
   styleUrls: ['./portfolio-details.component.css']
 })
 export class PortfolioDetailsComponent implements OnInit {
-
+  positions;
+  load=false;
   constructor(private _http: HttpService, private userService: UserService) { }
 
   ngOnInit() {
-    // this.userService.getAlpacaAssets()
-    this.userService.getAlpacaAccount()
+    var returnItem = this.userService.getAlpacaPositions()
+    this.positions = this.userService.getUserAssets()
+    console.log(returnItem)
   }
+
+  refresh(){
+    this.ngOnInit()
+    this.load=true;
+    var returnItem = this.userService.getAlpacaPositions()
+    this.positions = this.userService.getUserAssets()
+  }
+
+
 
 }

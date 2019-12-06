@@ -16,19 +16,21 @@ export class SignInComponent implements OnInit {
   password;
   usernameBool;
   passwordBool;
+  loginStatus;
   loginErrors = [];
   submission = false;
   constructor(private _http: HttpService, private userService: UserService) {
     this.form = new FormGroup({
       user: new FormControl('', Validators.required),
       pass: new FormControl('', [Validators.required ])
-
     });
   }
 
 
   ngOnInit() {
     console.log(this.form)
+    this.loginStatus = this.userService.getLogInStatus()
+    console.log(this.loginStatus)
   }
   async logUserIn(){
     this.loginErrors = await this.userService.logUserIn(this.username, this.password)

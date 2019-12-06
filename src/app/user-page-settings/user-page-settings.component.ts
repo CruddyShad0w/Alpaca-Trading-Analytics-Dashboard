@@ -17,7 +17,8 @@ export class UserPageSettingsComponent implements OnInit {
   apiSecret;
   results;
   result2;
-  alpacaLogin
+  alpacaLogin;
+  loginStatus = false;
 
   constructor(private _http: HttpService, private userService: UserService) {
     this.form = new FormGroup({
@@ -47,5 +48,7 @@ export class UserPageSettingsComponent implements OnInit {
     this.result2 = await this.userService.logUserIntoAlpaca()
     return this.result2
   }
-
+  // getLogInStatus(){
+  //   return this.userService.getLogInStatus()
+  // }
 }

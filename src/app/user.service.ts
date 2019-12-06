@@ -14,6 +14,7 @@ export class UserService {
   output;
   output2;
   alpacaLogin;
+  userAssets;
 
   constructor(private _http: HttpService) {
     }
@@ -28,6 +29,7 @@ export class UserService {
       this.currentUser = this.output[2]
       console.log('user id:', this.currentUser)
       this.output.pop(2)
+      this.loggedIn=true;
       console.log('attempting alpaca login')
       var logger = this.logUserIntoAlpaca()
       console.log(logger)
@@ -41,6 +43,7 @@ export class UserService {
   }
   logUserOut(){
     this.currentUser=null;
+    this.alpacaLogin=null;
     this.loggedIn=false;
   }
 
@@ -50,7 +53,7 @@ export class UserService {
   async updateUserAlpacaInfo(data){
     console.log("user: " + this.currentUser)
     this.output2 = await this._http.updateUserAlpacaInfo(this.currentUser, data)
-    console.log('output from htttp put', this.output2)
+    this.alpacaLogin = data
     return this.output2
   }
   async logUserIntoAlpaca(){
@@ -70,13 +73,36 @@ export class UserService {
     return this.output2
   }
 
-  async getAlpacaAssets(){
-    var returnItem = await this._http.getAlpacaAssets()
+  async getAlpacaAccount(){
+    var returnItem = await this._http.getAlpacaAccount(this.alpacaLogin)
+    console.log(returnItem)
     return returnItem
   }
 
-  async getAlpacaAccount(){
-    var returnItem = await this._http.getAlpacaAccount()
+  async getAlpacaPositions(){
+    this.userAssets = await this._http.getAlpacaPositions(this.alpacaLogin)
+    console.log(this.userAssets)
+    return this.userAssets
+  }
+
+  getUserAssets(){
+    return this.userAssets
+  }
+
+  async submitAlpacaOrder(data){
+    var returnItem = await this._http.submitAlpacaOrder(data)
+    console.log(returnItem)
+    return returnItem
+  }
+  async logOutAlpaca(){
+    var returnItem = await this._http.logOutAlpaca()
+    console.log(returnItem)
+    return returnItem
+  }
+
+  async updateUserPreferences(data){
+    var returnItem = await this._http.updateUserPreferences(this.currentUser, data)
+    console.log(returnItem)
     return returnItem
   }
 }
