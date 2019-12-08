@@ -27,6 +27,19 @@ export class HttpService {
     let results = await this.http.post('https://alpaca-wrangler-spring-backend.herokuapp.com/setAlpaca/'+id,data).toPromise();
     return results
   }
+  // Eample json for getbars post
+  // {"symbols":["TSLA","AAPL"],
+  // "time":"minute",
+  // "limit":"7",
+  // "alpaca_info": {
+  //   "baseUrl":"https://paper-api.alpaca.markets",
+  //   "keyId":"PKDQ16XBLHH85LJD24K2",
+  //   "secretKey":"LU1UZKo3D8NMGZYMrGaNHoJQassWO/xm40gLEM6t"
+  // }}
+  async getBars(data){
+    let results = await this.http.post('http://alpaca-wrangler-flask-backend.herokuapp.com/getBars/',data).toPromise();
+    return results
+  }
 
   async updateUserPreferences(id, data){
     let results = await this.http.post('https://alpaca-wrangler-spring-backend.herokuapp.com/setSettings/'+id,data).toPromise()

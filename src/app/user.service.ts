@@ -13,7 +13,9 @@ export class UserService {
   pair;
   output;
   output2;
+  //Json object of the current users baseUrl, secretKey, keyId
   alpacaLogin;
+
   userAssets;
   alpacaAccount;
 
@@ -103,6 +105,25 @@ export class UserService {
   async logOutAlpaca(){
     var returnItem = await this._http.logOutAlpaca()
     console.log(returnItem)
+    return returnItem
+  }
+  // Eample json for getbars post
+  // {"symbols":["TSLA","AAPL"],
+  // "time":"minute",
+  // "limit":"7",
+  // "alpaca_info": {
+  //   "baseUrl":"https://paper-api.alpaca.markets",
+  //   "keyId":"PKDQ16XBLHH85LJD24K2",
+  //   "secretKey":"LU1UZKo3D8NMGZYMrGaNHoJQassWO/xm40gLEM6t"
+  // }}
+  async getBars(symbols, time, limit){
+    var data = (
+      {"symbols":symbols,
+      "time":time,
+      "limit":limit,
+      "alpaca_info": this.alpacaLogin
+    )
+    var returnItem = await this._http.getBars(data)
     return returnItem
   }
 

@@ -17,6 +17,8 @@ export class PortfolioDetailsComponent implements OnInit {
   ngOnInit() {
     var returnItem = this.userService.getAlpacaPositions()
     this.positions = this.userService.getUserAssets()
+    // example of get bars
+    //this.userService.getBars(["TSLA","AAPL"], "minute", "7")
     console.log(returnItem)
   }
 
