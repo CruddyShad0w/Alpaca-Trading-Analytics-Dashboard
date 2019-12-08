@@ -122,7 +122,7 @@ export class UserService {
       "time":time,
       "limit":limit,
       "alpaca_info": this.alpacaLogin
-    )
+    })
     var returnItem = await this._http.getBars(data)
     return returnItem
   }
