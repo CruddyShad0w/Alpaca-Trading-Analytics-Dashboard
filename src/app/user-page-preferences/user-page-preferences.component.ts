@@ -16,9 +16,11 @@ export class UserPagePreferencesComponent implements OnInit {
 
   constructor(private _http: HttpService, private userService: UserService) {
     this.form = new FormGroup({
-      theme: new FormControl('', Validators.required),
+      light: new FormControl('', Validators.required),
+      dark: new FormControl('', Validators.required),
       baseGraph: new FormControl('', [Validators.required]),
-      defaultGraphDays: new FormControl('', [Validators.required])
+      period: new FormControl('', [Validators.required]),
+      count: new FormControl('', [Validators.required]),
     });
    }
 
@@ -27,10 +29,14 @@ export class UserPagePreferencesComponent implements OnInit {
   }
 
   async updateUserPreferences(){
+    var passItem = "Light"
+    if (this.form.value.dark == true){
+      passItem = "Dark"
+    }
     var data = ({
-      "theme": this.form.value.theme,
+      "theme": passItem,
       "baseGraph": this.form.value.baseGraph,
-      "defaultGraphDays":this.form.value.defaultGraphDays
+      "defaultGraphDays":this.form.value.count
     })
     console.log(data)
     this.result = await this.userService.updateUserPreferences(data)

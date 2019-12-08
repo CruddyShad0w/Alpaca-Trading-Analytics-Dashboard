@@ -15,6 +15,7 @@ export class UserService {
   output2;
   alpacaLogin;
   userAssets;
+  alpacaAccount;
 
   constructor(private _http: HttpService) {
     }
@@ -68,15 +69,20 @@ export class UserService {
     else{
       this.output2 = await this._http.logUserInAlpaca(this.alpacaLogin)
       console.log("user logged into alpaca")
+      this.refreshAlpacaAccount()
       this.output2 = true
     }
     return this.output2
   }
 
-  async getAlpacaAccount(){
-    var returnItem = await this._http.getAlpacaAccount(this.alpacaLogin)
-    console.log(returnItem)
-    return returnItem
+  async refreshAlpacaAccount(){
+    this.alpacaAccount = await this._http.getAlpacaAccount(this.alpacaLogin)
+    console.log(this.alpacaAccount)
+  }
+
+  getAlpacaAccount(){
+    this.refreshAlpacaAccount()
+    return this.alpacaAccount
   }
 
   async getAlpacaPositions(){

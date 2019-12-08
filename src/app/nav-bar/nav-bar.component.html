@@ -21,9 +21,11 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Users</a>
         <div class="dropdown-menu bg-dark">
           <a id="navItem" class="dropdown-item text-white" href="#" routerLink='/signIn'>sign-in</a>
+          <a id="navItem" class="dropdown-item text-white" href="#" routerLink='/' (click)="logUserOut()">sign-out</a>
           <div class="dropdown-divider"></div>
           <a id="navItem" class="dropdown-item text-white" href="#" routerLink='/userPage/settings'>settings</a>
-          <a id="navItem" class="dropdown-item text-white" href="#" routerLink='/' (click)="logUserOut()">sign-out</a>
+          <a id="navItem" class="dropdown-item text-white" href="#" routerLink='/userPage/preferences'>Preferences</a>
+
         </div>
       </div>
     </div>

@@ -10,3 +10,9 @@ body {
 #navItem:hover{
   background:none !important;
 }
+.red{
+  color:#e53935
+}
+.green{
+  color:#65e7c0
+}

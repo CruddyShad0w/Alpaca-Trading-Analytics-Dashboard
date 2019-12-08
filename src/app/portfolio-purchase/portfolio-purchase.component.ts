@@ -12,8 +12,10 @@ import { HttpService } from "./../http.service";
 })
 export class PortfolioPurchaseComponent implements OnInit {
   form: FormGroup;
+  searchForm:formGroup;
   constructor(private _http: HttpService, private userService: UserService) {
     this.form = new FormGroup({
+      symbol: new FormControl('', Validators.required),
       qty: new FormControl('', Validators.required),
       side: new FormControl('', [Validators.required ]),
       type: new FormControl('', [Validators.required ]),
@@ -21,6 +23,11 @@ export class PortfolioPurchaseComponent implements OnInit {
       limit_price: new FormControl('', [Validators.required ]),
       stop_price: new FormControl('', [Validators.required ])
     });
+
+    this.form = new FormGroup({
+      index: new FormControl('', Validators.required),
+      symbol: new FormControl('', Validators.required)
+    })
    }
 
   ngOnInit() {
@@ -29,6 +36,7 @@ export class PortfolioPurchaseComponent implements OnInit {
 
   submitOrder(){
     var data = ({
+      "symbol": this.form.value.symbol,
       "qty": this.form.value.qty,
       "side": this.form.value.side,
       "type": this.form.value.type,

@@ -3,19 +3,14 @@
   <div *ngIf="load == true" class="row no-gutters justify-content-center">
 
     <div *ngFor="let position of positions" id="wrapper">
-      <div class="card bg-dark text-white">
+      <div class="card border-dark" style="width: 20rem;border-width:2px">
         <p>graph here</p>
-        <div class="card-body">
-          <h5 class="card-title">{{position.exchange}}:{{position.symbol}}</h5>
-          <p class="card-text">Avg Entry: {{position.avg_entry_price}}</p>
-          <p class="card-text">Shares: {{position.qty}}</p>
-          <p class="card-text">Market Value: {{position.market_value}}</p>
-          <!-- <div *ngIf="{{position.profits}} >= 0" style="color:green"> -->
-            <p class="card-text">Profits: {{position.profits}}</p>
-          <!-- </div> -->
-          <!-- <div *ngIf="{{position.profits}} <= 0" style="color:red"> -->
-            <!-- <p class="card-text">Profits: {{position.profits}}</p> -->
-          <!-- </div> -->
+        <div class="card-body col-sm" style="background: rgb(19, 23, 34);">
+          <h6 class="card-title mb-2 text-muted" >{{position.exchange}}:{{position.symbol}}</h6>
+          <p class="card-text" style="color: grey;">Avg Entry: {{position.avg_entry_price}}</p>
+          <p class="card-text" style="color: grey;">Shares: {{position.qty}}</p>
+          <p class="card-text" style="color: grey;">Market Value: {{position.market_value}}</p>
+          <p class="card-text" [ngClass]="{'red':position.profits < 0, 'green':position.profits>0}">Profits: {{position.profits}}</p>
         </div>
       </div>
     </div>

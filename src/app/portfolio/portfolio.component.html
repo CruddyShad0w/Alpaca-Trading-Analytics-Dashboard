@@ -1,3 +1,25 @@
-<p>portfolio works</p>
-<p>Graph of NASDAQ:INDEX goes here as default</p>
-<router-outlet></router-outlet>
+  <div *ngIf="loginStatus" class="container text-white">
+    <div class="row">
+      <div class="card border-dark" style="width: 33%;border-width:2px">
+        <div class="card-body col-sm" style="background: rgb(19, 23, 34);">
+          <h5 class="card-title text-muted"> Buying Power:</h5>
+          <h6 class="card-subtitle mb-2 " [ngClass]="{'red':accountInfo.buying_power <0 , 'green':accountInfo.buying_power >0}">${{accountInfo.buying_power}}</h6>
+        </div>
+      </div>
+      <div class="card border-dark" style="width: 33%;border-width:2px">
+        <div class="card-body col-sm" style="background: rgb(19, 23, 34);">
+          <h5 class="card-title text-muted">Current Value:</h5>
+          <h6 class="card-subtitle mb-2 " [ngClass]="{'red':accountInfo.portfolio_value <0 , 'green':accountInfo.portfolio_value >0}">${{accountInfo.portfolio_value}}</h6>
+        </div>
+      </div>
+      <div class="card border-dark" style="width: 33%;border-width:2px">
+        <div class="card-body col-sm" style="background: rgb(19, 23, 34);">
+          <h5 class="card-title text-muted">Account Blocked:</h5>
+          <h6 class="card-subtitle mb-2 " [ngClass]="{'red':!accountInfo.account_blocked, 'green':!accountInfo.account_blocked}">${{accountInfo.account_blocked}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>Graph of NASDAQ:INDEX goes here as default</p>
+  <router-outlet></router-outlet>

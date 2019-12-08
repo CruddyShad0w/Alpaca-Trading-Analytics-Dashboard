@@ -14,6 +14,10 @@ h5:hover{
   padding-right:5px;
   padding-bottom:5px
 }
-p{
-  color:white;
+
+.red{
+  color:#e53935
+}
+.green{
+  color:#65e7c0
 }
