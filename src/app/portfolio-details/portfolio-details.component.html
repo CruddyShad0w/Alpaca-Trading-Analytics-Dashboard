@@ -1,11 +1,12 @@
 <div class="container mx-auto">
   <button type="button" class="btn btn-success btn-block" (click)="refresh()">Refresh</button>
   <div *ngIf="load == true" class="row no-gutters justify-content-center">
-
     <div *ngFor="let position of positions" id="wrapper">
       <div class="card border-dark" style="width: 20rem;border-width:2px">
-        <p>graph here</p>
+
+        <div style="background: rgb(19, 23, 34);"></div>
         <div class="card-body col-sm" style="background: rgb(19, 23, 34);">
+          <p class ="card-text" style="color: blue;">%89.99 <img style="width:18px;height:30px;" src="https://upload.wikimedia.org/wikipedia/commons/3/36/Up_green_arrow.png"></p>
           <h6 class="card-title mb-2 text-muted" >{{position.exchange}}:{{position.symbol}}</h6>
           <p class="card-text" style="color: grey;">Avg Entry: {{position.avg_entry_price}}</p>
           <p class="card-text" style="color: grey;">Shares: {{position.qty}}</p>
@@ -14,6 +15,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
