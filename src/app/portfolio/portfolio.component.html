@@ -1,6 +1,7 @@
+<br>
   <div *ngIf="loginStatus" class="container text-white">
     <div class="row">
-      <div class="card border-dark" style="width: 33%;border-width:2px">
+      <div class="card border-dark" style="width: 33%; border-width:2px">
         <div class="card-body col-sm" style="background: rgb(19, 23, 34);">
           <h5 class="card-title text-muted"> Buying Power:</h5>
           <h6 class="card-subtitle mb-2 " [ngClass]="{'red':accountInfo.buying_power <0 , 'green':accountInfo.buying_power >0}">${{accountInfo.buying_power}}</h6>
@@ -22,7 +23,8 @@
   </div>
 
   <!-- <p>Graph of NASDAQ:INDEX goes here as default</p> -->
-  <div class ="container" style="display: block;">
+  <br>
+  <div class ="container border-dark" style="display: block;background: rgb(19, 23, 34);border-width:2px">
   <canvas baseChart width="400" height="100"
     [datasets]="lineChartData"
     [labels]="lineChartLabels"
@@ -32,4 +34,5 @@
     [plugins]="lineChartPlugins">
   </canvas>
 </div>
+<br>
   <router-outlet></router-outlet>

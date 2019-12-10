@@ -18,11 +18,11 @@
 
           <form [formGroup] = "form">
             <div class="form-group row">
-              <label for="inputPassword" class="col-sm-6 col-form-label">Graph Range:</label>
-              <input type="range" class="form-control-range" id="formControlRange"  formControlName="count">
+              <label for="inputPassword" class="col-sm-6 col-form-label" >Graph Range:</label>
+              <input type="range" class="form-control-range" id="formControlRange"  formControlName="count" >
             </div>
 
-            <div class="form-group row">
+            <!-- <div class="form-group row">
               <label for="inputPassword" class="col-sm-4 col-form-label">Website Theme:</label>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio"  id="inlineRadio1" value="light"  formControlName="light">
@@ -30,7 +30,7 @@
                 <input class="form-check-input" type="radio" id="inlineRadio2" value="dark"  formControlName="dark">
                 <label class="form-check-label" for="inlineRadio1">Dark</label>
               </div>
-            </div>
+            </div> -->
             <br>
 
             <div class="form-group row">
@@ -68,7 +68,7 @@
                         <label for="inputPassword" class="col-sm-6 col-form-label"> New Password</label>
                         <input type="text" class="form-control" id="newPassword" formControlName="password">
                     </div>
-                    <button id="setPassword" type="button" class="btn btn-secondary btn-block">Reset</button>
+                    <button id="setPassword" type="button" class="btn btn-secondary btn-block"(click)="resetPassword()">Reset</button>
                 </form>
             </div>
         </div>

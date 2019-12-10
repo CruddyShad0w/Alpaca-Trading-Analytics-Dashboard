@@ -24,7 +24,7 @@ export class PortfolioPurchaseComponent implements OnInit {
       stop_price: new FormControl('', [Validators.required ])
     });
 
-    this.form = new FormGroup({
+    this.searchForm = new FormGroup({
       index: new FormControl('', Validators.required),
       symbol: new FormControl('', Validators.required)
     })

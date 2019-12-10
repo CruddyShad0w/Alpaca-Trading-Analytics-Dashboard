@@ -1,5 +1,6 @@
 <div class="container mx-auto">
-  <button type="button" class="btn btn-success btn-block" (click)="refresh()">Refresh</button>
+  <button type="button" class="btn btn-secondary btn-block" (click)="refresh()">Refresh</button>
+  <br>
   <div *ngIf="load == true" class="row no-gutters justify-content-center">
     <div *ngFor="let position of positions" id="wrapper">
       <div class="card border-dark" style="width: 20rem;border-width:2px">

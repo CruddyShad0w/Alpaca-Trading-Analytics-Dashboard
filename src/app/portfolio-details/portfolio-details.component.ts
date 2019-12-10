@@ -19,8 +19,6 @@ export class PortfolioDetailsComponent implements OnInit {
     var returnItem = this.userService.getAlpacaPositions().then(data=>this.function(data))
     this.positions = this.userService.getUserAssets()
     // example of get bars
-    //this.userService.getBars(["TSLA","AAPL"], "minute", "7")
-
     console.log(returnItem)
   }
   function(data){
@@ -32,6 +30,7 @@ export class PortfolioDetailsComponent implements OnInit {
     this.load=true;
     var returnItem = this.userService.getAlpacaPositions()
     this.positions = this.userService.getUserAssets()
+    console.log("HERE", this.positions)
   }
 
 
