@@ -1,8 +1,82 @@
 <div class="container text-white">
-  <div class="py-5 text-center">
+  <!-- <div class="py-5 text-center">
     <h2>User Preferences</h2>
-  </div>
-  <form [formGroup]="form">
+  </div> -->
+
+<!--
+  <div class="container border-dark text-black">
+
+    <div class="col py-5"> -->
+
+      <div id="card" class="card bg-dark">
+
+        <div class="card-body bg-dark">
+
+          <div class="py-5 text-center">
+            <h2>Preferences</h2>
+          </div>
+
+          <form [formGroup] = "form">
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-6 col-form-label">Graph Range:</label>
+              <input type="range" class="form-control-range" id="formControlRange"  formControlName="count">
+            </div>
+
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-4 col-form-label">Website Theme:</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio"  id="inlineRadio1" value="light"  formControlName="light">
+                <label class="form-check-label" for="inlineRadio1">Light</label> <br>
+                <input class="form-check-input" type="radio" id="inlineRadio2" value="dark"  formControlName="dark">
+                <label class="form-check-label" for="inlineRadio1">Dark</label>
+              </div>
+            </div>
+            <br>
+
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-4 col-form-label">Stock Exchange:</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="inputStockExchange" placeholder="NYSE"  formControlName="index">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-4 col-form-label">Stock Symbol:</label>
+              <div class="col-sm-8">
+                <input type="password" class="form-control" id="inputApiKey" placeholder="AAPL" formControlName="symbol">
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-success btn-block" (click)="updateUserPreferences()">Save</button>
+
+          </form>
+        </div>
+      </div>
+      <br>
+      <div id="card" class="card bg-dark">
+            <div class="card-body bg-dark">
+                <div class="py-5 text-center">
+                    <h2>Reset Password</h2>
+                </div>
+                <br>
+                <form [formGroup] = "passwordForm">
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-6 col-form-label"> Old Password</label>
+                        <input type="text" class="form-control" id="oldPassword" formControlName="oldPassword">
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-6 col-form-label"> New Password</label>
+                        <input type="text" class="form-control" id="newPassword" formControlName="password">
+                    </div>
+                    <button id="setPassword" type="button" class="btn btn-secondary btn-block">Reset</button>
+                </form>
+            </div>
+        </div>
+
+    <!-- </div>
+
+  </div> -->
+  <!-- <form [formGroup]="form">
     <div class="form-group row">
       <label for="inputPassword" class="col-sm-4 col-form-label">Theme:</label>
       <div class="col-sm-8">
@@ -46,5 +120,6 @@
     </div>
     <button type="button" class="btn btn-secondary btn-block">Save</button>
 
-  </form>
+  </form> -->
 </div>
+<br>

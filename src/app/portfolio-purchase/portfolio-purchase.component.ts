@@ -34,11 +34,26 @@ export class PortfolioPurchaseComponent implements OnInit {
 
   }
 
-  submitOrder(){
+  submitBuyOrder(){
+    var side = "buy"
     var data = ({
       "symbol": this.form.value.symbol,
       "qty": this.form.value.qty,
-      "side": this.form.value.side,
+      "side": side,
+      "type": this.form.value.type,
+      "time_in_force": this.form.value.time_in_force,
+      "limit_price": this.form.value.limit_price,
+      "stop_price": this.form.value.stop_price
+    })
+    console.log(data)
+    this.userService.submitAlpacaOrder(data)
+  }
+  submitSellOrder(){
+    var side = "sell"
+    var data = ({
+      "symbol": this.form.value.symbol,
+      "qty": this.form.value.qty,
+      "side": side,
       "type": this.form.value.type,
       "time_in_force": this.form.value.time_in_force,
       "limit_price": this.form.value.limit_price,

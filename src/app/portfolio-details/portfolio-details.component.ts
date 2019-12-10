@@ -11,15 +11,20 @@ import { HttpService } from "./../http.service";
 })
 export class PortfolioDetailsComponent implements OnInit {
   positions;
+  dataHolder;
   load=false;
   constructor(private _http: HttpService, private userService: UserService) { }
 
   ngOnInit() {
-    var returnItem = this.userService.getAlpacaPositions()
+    var returnItem = this.userService.getAlpacaPositions().then(data=>this.function(data))
     this.positions = this.userService.getUserAssets()
     // example of get bars
     //this.userService.getBars(["TSLA","AAPL"], "minute", "7")
+
     console.log(returnItem)
+  }
+  function(data){
+    console.log('IN FUNCTION', data)
   }
 
   refresh(){

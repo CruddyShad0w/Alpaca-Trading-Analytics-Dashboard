@@ -12,6 +12,10 @@ export class HttpService {
     let results = await this.http.post('https://alpaca-wrangler-spring-backend.herokuapp.com/login', data).toPromise();
     return results
   }
+  async resetPassword(id, data){
+    let results = await this.http.post('http://alpaca-wrangler-flask-backend.herokuapp.com/resetPassword/'+id,data)
+    return results
+  }
   async logUserInAlpaca(data){
     let results = await this.http.post('http://alpaca-wrangler-flask-backend.herokuapp.com/login/',data).toPromise();
     return results

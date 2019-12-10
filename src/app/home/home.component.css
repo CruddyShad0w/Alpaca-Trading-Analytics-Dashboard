@@ -2,3 +2,7 @@
    max-width:400px;
    padding-left:80px;
  }
+.jumbotron{
+  opacity:0.8;
+  background-image: url('https://image.shutterstock.com/image-illustration/horizontal-banner-business-economy-investment-260nw-624416006.jpg')
+}

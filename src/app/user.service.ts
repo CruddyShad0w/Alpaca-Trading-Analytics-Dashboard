@@ -44,6 +44,10 @@ export class UserService {
     console.log('retreiving current user id: id in service -', this.currentUser)
     return this.currentUser
   }
+  async resetPassword(data){
+    this.output = await this._http.resetPassword(this.currentUser, data)
+    return this.output
+  }
   logUserOut(){
     this.currentUser=null;
     this.alpacaLogin=null;
