@@ -47,5 +47,4 @@ export class PortfolioPurchaseComponent implements OnInit {
     console.log(data)
     this.userService.submitAlpacaOrder(data)
   }
-
 }
