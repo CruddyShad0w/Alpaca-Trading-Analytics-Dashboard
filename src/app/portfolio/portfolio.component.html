@@ -22,4 +22,14 @@
   </div>
 
   <p>Graph of NASDAQ:INDEX goes here as default</p>
+  <div class ="container" style="display: block;">
+  <canvas baseChart width="400" height="100"
+    [datasets]="lineChartData"
+    [labels]="lineChartLabels"
+    [colors]="lineChartColors"
+    [legend]="lineChartLegend"
+    [chartType]="lineChartType"
+    [plugins]="lineChartPlugins">
+  </canvas>
+</div>
   <router-outlet></router-outlet>

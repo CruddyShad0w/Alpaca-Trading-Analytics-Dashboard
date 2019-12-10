@@ -12,7 +12,7 @@ import { HttpService } from "./../http.service";
 })
 export class PortfolioPurchaseComponent implements OnInit {
   form: FormGroup;
-  searchForm:formGroup;
+  searchForm: FormGroup;
   constructor(private _http: HttpService, private userService: UserService) {
     this.form = new FormGroup({
       symbol: new FormControl('', Validators.required),

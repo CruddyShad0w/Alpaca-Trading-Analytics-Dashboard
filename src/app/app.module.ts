@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
 import { ReactiveFormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,6 +38,7 @@ import { UserPageSettingsComponent } from './user-page-settings/user-page-settin
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ChartsModule,
     // NgbModule,
     FormsModule,
     ReactiveFormsModule,
