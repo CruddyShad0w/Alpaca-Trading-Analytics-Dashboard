@@ -1,39 +1,42 @@
 <div class="container">
+    <form [formGroup]="searchForm">
     <div class="centered">
         <div class="row">
-            <input class="form-control" id="search" type="text"/>
+            <input class="form-control search" id="sindex" type="text" placeholder="INDEX" [formGroup]="searchForm"/>
+            <input class="form-control search" id="ssymbol" type="text" placeholder="SYMBOL" [formGroup]="searchForm"/>
             <button class="btn btn-light">Search for a Stock</button>
         </div>
     </div>
+    </form>
     <div class="container">
         The current stock graph goes here.
         <br>
         The current stock symbol goes here.
     </div>
-    <form class = "centered">
+    <form class = "centered" [formGroup]="buyForm">
         <div class="form-row align-items-center">
-            <div class="col-auto">
-                <input class="form-control" name="display" id="display0" type="radio">
+            <!-- <div class="col-auto">
+                <input class="form-control" name="display" id="display0" type="radio" formControlName="display">
                 <label class="label" for="display0">Display</label>
-            </div>
+            </div> -->
             <div class="col-auto">
-                <input class="form-control" type="text" id="symbol0" placeholder="SYMBOL">
+                <input class="form-control" type="text" id="symbol0" placeholder="SYMBOL" formControlName="symbol">
                 <label class="label" for="symbol0">Symbol</label>
             </div>
             <div class="col-auto">
-                <input class="form-control quantity" id="quantity0" type="text" placeholder="0">
+                <input class="form-control quantity" id="quantity0" type="text" value="0" formControlName="qty">
                 <label class="label" for="quantity0">Qty.</label>
             </div>
             <div class="col-auto">
-                <input class="form-control" name="buysell" id="buy0" type="radio">
+                <input class="form-control" name="buysell" id="buy0" type="radio" formControlName="buy">
                 <label class="label" for="buy0">Buy</label>
             </div>
             <div class="col-auto">
-                <input class="form-control" name="buysell" id="sell0" type="radio">
+                <input class="form-control" name="buysell" id="sell0" type="radio" formControlName="sell">
                 <label class="label" for="sell0">Sell</label>
             </div>
             <div class="col-auto">
-                <input class="form-control" id="update" value="Update" type="submit">
+                <input class="form-control" id="update" value="Update" type="submit" (click)="submitOrder()">
             </div>
         </div>
     </form>
