@@ -21,7 +21,7 @@
     "@angular/router": "~8.2.9",
     "bootstrap": "^4.3.1",
     "express": "^4.17.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "ng-bootstrap": "^1.6.3",
     "ng-bootstrap-form-validation": "^5.0.0",
